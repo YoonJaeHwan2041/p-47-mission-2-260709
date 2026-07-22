@@ -112,8 +112,10 @@ public class QuoteController {
             return;
         }
 
+        System.out.println("명언(기존) : " + target.getContent());
         System.out.print("새 명언 : ");
         String newContent = sc.nextLine();
+        System.out.println("명언(기존) : " + target.getAuthor());
         System.out.print("새 작가 : ");
         String newAuthor = sc.nextLine();
 

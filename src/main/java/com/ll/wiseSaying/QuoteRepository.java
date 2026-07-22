@@ -1,5 +1,6 @@
 package com.ll.wiseSaying;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -10,9 +11,11 @@ public class QuoteRepository {
     private int lastId = 0;
 
     public void save(String content, String author) {
-        Quote quote = new Quote(++lastId, content, author);
+        Quote quote = new Quote(++lastId, content, author, LocalDateTime.now(), LocalDateTime.now());
         quotes.add(quote);
     }
+
+
 
     //전체 목록
     public List<Quote> findAll() {

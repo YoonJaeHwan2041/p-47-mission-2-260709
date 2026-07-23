@@ -19,20 +19,20 @@ public class QuoteService {
         return quotes.stream()
                 .sorted(Comparator.comparing(Quote::getId).reversed())
                 .limit(5)
-                .collect(Collectors.toList());
+                .toList();
     }
     //오오오버어어어어로로로로디이이이잉
     public List<Quote> getList(int page){
         List<Quote> quotes = quoteRepository.findAll();
         int skip = page * 5 -5;
 
-        int totalPage = (quotes.size() -1) / 5 + 1;
         return quotes.stream()
                 .sorted(Comparator.comparing(Quote::getId).reversed())
                 .skip(skip)
                 .limit(5)
-                .collect(Collectors.toList());
+                .toList();
     }
+
 
     public int totalPage(){
         int count = quoteRepository.count();
@@ -49,7 +49,7 @@ public class QuoteService {
                     String target = "author".equals(keywordType) ? quote.getAuthor() : quote.getContent();
                     return target.contains(keyword);
                 })
-                .collect(Collectors.toList());
+                .toList();
     }
 
 
